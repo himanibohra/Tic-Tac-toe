@@ -150,6 +150,16 @@ const showWinner = (winner) => {
     msgContainer.classList.add("x-wins-bg");
   }
 
+  // Confetti effect
+  if (typeof confetti === 'function') {
+    confetti({
+      particleCount: 120,
+      spread: 90,
+      origin: { y: 0.6 },
+      colors: ['#A53327', '#FA9749', '#E6CCAE', '#B2C3A1', '#719B87', '#966D7E'],
+    });
+  }
+
   if (isSeriesMatch && matchCount < TOTAL_MATCHES) {
     msg.innerText = `Player ${winner} wins this match!`;
     matchCount++;
